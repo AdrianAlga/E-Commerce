@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Tipe Text dengan Kata Tetap yang Tidak Bisa Dihapus</title>
+</head>
+<body>
+  <form id="myForm">
+    <label for="myInput">Kata Tetap:</label>
+    <input type="text" id="myInput" readonly>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Menggunakan JavaScript
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Nilai yang diinput: " + document.getElementById("myInput").value);
+    });
+
+    document.getElementById("myInput").addEventListener("keydown", function(event) {
+      // Menonaktifkan tombol Backspace (kode 8) dan Delete (kode 46)
+      if (event.keyCode === 8 || event.keyCode === 46) {
+        event.preventDefault();
+      }
+    });
+
+    document.getElementById("myInput").value = "Kata Tetap"; // Mengatur nilai awal
+  </script>
+</body>
+</html>
